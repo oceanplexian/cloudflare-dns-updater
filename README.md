@@ -1,6 +1,7 @@
 # Cloudflare DNS Updater Script
 
-The Cloudflare DNS Updater Script is a command-line tool written in Go that automatically checks and updates Cloudflare DNS records to ensure they match the expected IP address.
+The Cloudflare DNS Updater Script is a command-line tool written in Go that automatically checks and updates Cloudflare DNS records to ensure they match the expected IP address. You 
+could probably use https://github.com/K0p1-Git/cloudflare-ddns-updater instead, but I wanted a systemd service written in Go.
 
 ![Screenshot](https://raw.githubusercontent.com/oceanplexian/cloudflare-dns-updater/main/screenshot.jpg)
 
