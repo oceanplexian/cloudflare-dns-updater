@@ -2,6 +2,8 @@
 
 The Cloudflare DNS Updater Script is a command-line tool written in Go that automatically checks and updates Cloudflare DNS records to ensure they match the expected IP address.
 
+![Screenshot](https://raw.githubusercontent.com/oceanplexian/cloudflare-dns-updater/main/screenshot.jpg)
+
 ## Features
 
 - Automatically fetches DNS records from Cloudflare.
@@ -55,13 +57,6 @@ Replace `<subdomain>` with the subdomain you want to check and update.
 
 For example: `go run main.go -zoneid=abc123 -timeout=60 -subdomain=subdomain.example.com`
 3. The script will start running as a daemon and will periodically check and update the Cloudflare DNS records.
-
-## Logging
-
-The script uses the Uber Zap logging library for logging. The logs are configured to provide informative and colorized output. The log levels and log messages are designed to assist with monitoring and troubleshooting.
-
-## Contributing
-Contributions to the Cloudflare DNS Updater Script are welcome! If you have suggestions, bug reports, or feature requests, please open an issue or submit a pull request. Please follow the project's code of conduct.
 
 ## License
 This project is licensed under the MIT License.
