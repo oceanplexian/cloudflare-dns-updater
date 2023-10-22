@@ -46,7 +46,7 @@ func main() {
 	// alternatively, you can use a scoped API token
 	// api, err := cloudflare.NewWithAPIToken(os.Getenv("CLOUDFLARE_API_TOKEN"))
 	if err != nil {
-		logger.Fatal("Error creating Cloudflare API object", zap.Error(err))
+		logger.Error("Error creating Cloudflare API object", zap.Error(err))
 	}
 
 	// Run as a daemon
@@ -56,14 +56,14 @@ func main() {
 		// Fetch Public IP
 		expectedIP, err := GetPublicIP()
 		if err != nil {
-			logger.Fatal("Error fetching Public IP", zap.Error(err))
+			logger.Error("Error fetching Public IP", zap.Error(err))
 		}
 		logger.Info("Public IP is ", zap.String("expectedIP", expectedIP))
 
 		// Fetch DNS Records
 		e, _, err := api.ListDNSRecords(ctx, cloudflare.ZoneIdentifier(*zoneID), cloudflare.ListDNSRecordsParams{})
 		if err != nil {
-			logger.Fatal("Error fetching DNS records", zap.Error(err))
+			logger.Error("Error fetching DNS records", zap.Error(err))
 		}
 
 		// Check each record
@@ -83,7 +83,7 @@ func main() {
 
 					record, err = updateDNSRecord(ctx, api, *zoneID, record, expectedIP)
 					if err != nil {
-						logger.Fatal("Error updating DNS record", zap.Error(err))
+						logger.Error("Error updating DNS record", zap.Error(err))
 					}
 
 					logger.Info("Record updated successfully", zap.Any("Record", record))
